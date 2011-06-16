@@ -8,6 +8,7 @@ Puppet::Type.type(:logical_volume).provide :lvm do
              :resize2fs => 'resize2fs',
              :umount    => 'umount',
              :mount     => 'mount'
+    		 :mirror	=> 'mirror',
 
     def create
         args = ['-n', @resource[:name]]
@@ -16,6 +17,9 @@ Puppet::Type.type(:logical_volume).provide :lvm do
         elsif @resource[:initial_size]
             args.push('--size', @resource[:initial_size])
         end
+        if @resource[:mirror]
+        	args.push('-m', @resource[:mirror])
+		end
         args << @resource[:volume_group]
         lvcreate(*args)
     end

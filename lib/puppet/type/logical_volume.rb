@@ -35,4 +35,13 @@ Puppet::Type.newtype(:logical_volume) do
             end
         end
     end
+
+    newproperty(:mirror) do
+    	desc "The number of mirrors of the volume."
+    	validate do |value|
+    		unless value =~ /[0-9]/i
+    			raise ArgumentError , "#{value} is not a valid number of mirrors"
+			end
+		end
+	end
 end
