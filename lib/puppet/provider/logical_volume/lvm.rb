@@ -7,7 +7,7 @@ Puppet::Type.type(:logical_volume).provide :lvm do
              :lvs       => 'lvs',
              :resize2fs => 'resize2fs',
              :umount    => 'umount',
-             :mount     => 'mount'
+             :mount     => 'mount',
     		 :mirror	=> 'mirror',
 
     def create
