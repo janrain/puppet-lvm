@@ -8,7 +8,7 @@ Puppet::Type.type(:logical_volume).provide :lvm do
              :resize2fs => 'resize2fs',
              :umount    => 'umount',
              :mount     => 'mount',
-    		 :mirror	=> 'mirror',
+    		 :mirror	=> 'mirror'
 
     def create
         args = ['-n', @resource[:name]]
