@@ -18,6 +18,7 @@ Puppet::Type.type(:logical_volume).provide :lvm do
         end
         if @resource[:mirror]
         	args.push('-m', @resource[:mirror])
+		args.push('--corelog')
 		end
         args << @resource[:volume_group]
         lvcreate(*args)
