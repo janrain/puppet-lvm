@@ -67,3 +67,12 @@ does not attempt to remove a physical volume in-use.
 Logical volume size can be extended, but not reduced -- this is for
 safety, as manual intervention is probably required for data
 migration, etc.
+
+Janrain Additions
+-----------------
+
+### RAID
+
+The `logical_volume` resource will now take a `stripe` or `mirror` parameter
+defining that parameter to be passed to lvcreate. Corelog is enabled for mirroring.
+
