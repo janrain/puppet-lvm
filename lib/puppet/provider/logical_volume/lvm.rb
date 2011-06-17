@@ -18,7 +18,10 @@ Puppet::Type.type(:logical_volume).provide :lvm do
         end
         if @resource[:mirror]
         	args.push('-m', @resource[:mirror])
+		elsif @resource[:stripe]
+			args.push('-i', @resource[:stripe])
 		end
+
         args << @resource[:volume_group]
         lvcreate(*args)
     end
