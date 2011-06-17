@@ -18,6 +18,7 @@ Puppet::Type.type(:logical_volume).provide :lvm do
         end
         if @resource[:mirror]
         	args.push('-m', @resource[:mirror])
+			args.push('--corelog')
 		elsif @resource[:stripe]
 			args.push('-i', @resource[:stripe])
 		end
