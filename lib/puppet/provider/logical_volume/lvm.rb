@@ -19,6 +19,7 @@ Puppet::Type.type(:logical_volume).provide :lvm do
         if @resource[:mirror]
         	args.push('-m', @resource[:mirror])
 			args.push('--corelog')
+			args.push('--nosync')
 		elsif @resource[:stripe]
 			args.push('-i', @resource[:stripe])
 		end
